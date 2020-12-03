@@ -6,9 +6,11 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "format": "prettier -w ."
+    "format": "prettier -w .",
+    "test": "ava"
   },
   "devDependencies": {
+    "ava": "3.13.0",
     "prettier": "2.2.1"
   }
 }
