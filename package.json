@@ -1,0 +1,14 @@
+{
+  "name": "aoc-2020",
+  "version": "0.0.1",
+  "description": "My solutions of AoC 2020",
+  "author": "David J. Valles <davidtjvalles@gmail.com>",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier -w ."
+  },
+  "devDependencies": {
+    "prettier": "2.2.1"
+  }
+}
