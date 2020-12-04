@@ -1,10 +1,4 @@
-exports.dataA = `
-1-3 a: abcde
-1-3 b: cdefg
-2-9 c: ccccccccc
-`
-
-exports.dataB = `
+exports.input = `
 15-19 k: kkkkkkkkkkkkzkkkkkkk
 1-11 s: sbssswsqsssssrlss
 8-9 b: pbbbbbbkbz

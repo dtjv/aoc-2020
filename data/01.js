@@ -1,4 +1,4 @@
-exports.data = `
+exports.input = `
 1714
 1960
 1256

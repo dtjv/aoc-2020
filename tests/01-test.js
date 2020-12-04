@@ -1,17 +1,17 @@
 const test = require('ava')
 
 const { part1, part2 } = require('../src/01')
-const fixture = require('./fixtures/01')
+const data = require('../data/01')
 
-const data = fixture.data
+const input = data.input
   .trim()
   .split('\n')
   .map((n) => parseInt(n))
 
 test('part 1', (t) => {
-  t.is(part1(data), 482811)
+  t.is(part1(input), 482811)
 })
 
 test('part 2', (t) => {
-  t.is(part2(data), 193171814)
+  t.is(part2(input), 193171814)
 })
