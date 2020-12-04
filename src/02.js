@@ -1,5 +1,11 @@
+const format = (data) => {
+  return data.trim().split('\n')
+}
+
 exports.part1 = (input) => {
-  return input
+  const data = format(input)
+
+  return data
     .map((entry) =>
       entry.split(' ').reduce((r, c, i) => {
         switch (i) {
@@ -25,7 +31,9 @@ exports.part1 = (input) => {
 }
 
 exports.part2 = (input) => {
-  return input
+  const data = format(input)
+
+  return data
     .map((entry) =>
       entry.split(' ').reduce((r, c, i) => {
         switch (i) {

@@ -1,8 +1,14 @@
+const format = (data) => {
+  return data.trim().split('\n')
+}
+
 exports.part1 = (input, slope = { x: 3, y: 1 }) => {
-  const w = input[0].length
-  const h = input.length
+  const data = format(input)
+
+  const w = data[0].length
+  const h = data.length
   const wFactor = Math.ceil((h * slope.x) / slope.y / w)
-  const grid = input.map((row) => row.repeat(wFactor))
+  const grid = data.map((row) => row.repeat(wFactor))
   let treeCount = 0
 
   for (let row = 0, col = 0; row < h; row += slope.y, col += slope.x) {

@@ -1,12 +1,7 @@
 const test = require('ava')
 
 const { part1, part2 } = require('../src/01')
-const data = require('../data/01')
-
-const input = data.input
-  .trim()
-  .split('\n')
-  .map((n) => parseInt(n))
+const { input } = require('../data/01')
 
 test('part 1', (t) => {
   t.is(part1(input), 482811)

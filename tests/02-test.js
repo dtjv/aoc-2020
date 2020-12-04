@@ -1,9 +1,7 @@
 const test = require('ava')
 
 const { part1, part2 } = require('../src/02')
-const data = require('../data/02')
-
-const input = data.input.trim().split('\n')
+const { input } = require('../data/02')
 
 test('part 1', (t) => {
   t.is(part1(input), 655)
