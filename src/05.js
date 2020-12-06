@@ -24,13 +24,26 @@ const format = (input) => {
 const ROWS = new Array(128).fill(0).map((_, i) => i)
 const COLS = new Array(8).fill(0).map((_, i) => i)
 
+const calculateSeatIds = (input) => {
+  return input.map((instructions) => {
+    const row = search(ROWS, instructions.rows)
+    const col = search(COLS, instructions.cols)
+    return row * 8 + col
+  })
+}
+
 exports.part1 = (input) => {
-  return format(input)
-    .map((instructions) => {
-      const row = search(ROWS, instructions.rows)
-      const col = search(COLS, instructions.cols)
-      return row * 8 + col
-    })
+  return calculateSeatIds(format(input))
     .sort((a, b) => a - b)
     .pop()
+}
+
+exports.part2 = (input) => {
+  const seatIds = calculateSeatIds(format(input)).sort((a, b) => a - b)
+  const s = seatIds[0]
+  const e = seatIds[seatIds.length - 1]
+
+  for (let i = s; i <= e; i++) {
+    if (!seatIds.includes(i)) return i
+  }
 }
