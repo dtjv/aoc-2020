@@ -606,3 +606,13 @@ mirrored blue bags contain 5 dotted brown bags, 4 clear chartreuse bags, 2 brigh
 muted aqua bags contain 2 bright turquoise bags.
 bright yellow bags contain no other bags.
 `
+
+exports.dataset3 = `
+shiny gold bags contain 2 dark red bags.
+dark red bags contain 2 dark orange bags.
+dark orange bags contain 2 dark yellow bags.
+dark yellow bags contain 2 dark green bags.
+dark green bags contain 2 dark blue bags.
+dark blue bags contain 2 dark violet bags.
+dark violet bags contain no other bags.
+`
