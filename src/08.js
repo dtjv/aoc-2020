@@ -7,14 +7,16 @@ const parseInput = (instruction) => {
   return {
     op,
     arg: parseInt(arg),
-    visits: 0,
   }
 }
 
-exports.part1 = (input) => {
-  const instructions = format(input).map(parseInput)
+const addVisitsFlag = (instruction) => ({ ...instruction, visits: 0 })
+
+const runBootCode = (input) => {
+  const instructions = input.map(addVisitsFlag)
   let accumulator = 0
   let ptr = 0
+  let isComplete = false
 
   while (ptr >= 0 && ptr < instructions.length) {
     const instruction = instructions[ptr]
@@ -41,5 +43,45 @@ exports.part1 = (input) => {
     }
   }
 
-  return accumulator
+  if (ptr === instructions.length) {
+    isComplete = true
+  }
+
+  return { accumulator, isComplete }
+}
+
+exports.part1 = (input) => {
+  return runBootCode(format(input).map(parseInput)).accumulator
+}
+
+exports.part2 = (input) => {
+  const instructions = format(input).map(parseInput)
+  let testSet = undefined
+  let results = { accumulator: 0, isComplete: false }
+
+  for (let i = 0; i < instructions.length && !results.isComplete; i += 1) {
+    switch (instructions[i].op) {
+      case 'nop':
+        testSet = instructions.map((instruction, idx) =>
+          idx === i ? { op: 'jmp', arg: instruction.arg } : instruction
+        )
+        break
+      case 'jmp':
+        testSet = instructions.map((instruction, idx) =>
+          idx === i ? { op: 'nop', arg: instruction.arg } : instruction
+        )
+        break
+      case 'acc':
+        testSet = undefined
+        break
+      default:
+        throw new Error(`invalid instruction: ${instructions[i].op}`)
+    }
+
+    if (testSet) {
+      results = runBootCode(testSet)
+    }
+  }
+
+  return results.accumulator
 }
