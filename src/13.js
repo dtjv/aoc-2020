@@ -1,5 +1,3 @@
-const { dataSetA } = require('../data/13')
-
 const format = (data) => {
   return data.trim().split('\n')
 }
